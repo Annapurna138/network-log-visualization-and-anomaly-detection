@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center boxes horizontally */
+  width: 100%; /* Adjusted width */
+  max-width: 1300px; /* Adjusted max-width */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.box {
+  padding: 10px; /* Adjusted padding */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 200px; /* Adjusted width for smaller boxes */
+  margin: 10px; /* Added margin for spacing between boxes */
+}
+
+.box h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* New styles for graphs */
+.graphs-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-x: auto; /* Horizontal scrolling if needed */
+  padding: 20px; /* Add padding to the container */
+}
+
+.graph {
+  flex: 0 0 48%; /* Adjusted width for each graph */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.graph h2 {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.graph img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log Visualizer</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="title">📊 Log Visualizer 📊</div>
+    <div class="container">
+      <div class="box">
+        <h2>Total Events</h2>
+        <table>
+          <tr>
+            <th>Count</th>
+          </tr>
+          <tr>
+            <td>{{ total_events }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="box">
+        <h2>HTTP Methods</h2>
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>Count</th>
+          </tr>
+          {% for method, count in method_counts.items() %}
+          <tr>
+            <td>{{ method }}</td>
+            <td>{{ count }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="box">
+        <h2>Status Codes</h2>
+        <table>
+          <tr>
+            <th>Code</th>
+            <th>Count</th>
+          </tr>
+          {% for code, count in status_code_counts.items() %}
+          <tr>
+            <td>{{ code }}</td>
+            <td>{{ count }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="box">
+        <h2>URLs</h2>
+        <table>
+          <tr>
+            <th>URL</th>
+            <th>Count</th>
+          </tr>
+          {% for url, count in url_counts.items() %}
+          <tr>
+            <td>{{ url }}</td>
+            <td>{{ count }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="box ip-box">
+        <h2>IP Addresses</h2>
+        <table>
+          <tr>
+            <th>IP Address</th>
+            <th>Count</th>
+          </tr>
+          {% for ip, count in ip_counts.items() %}
+          <tr>
+            <td>{{ ip }}</td>
+            <td>{{ count }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+
+    <!-- Graphs -->
+    <div class="graphs-container">
+      <div class="graph">
+        <h2>Events Over Time for Different IP Addresses</h2>
+        <img
+          src="{{ url_for('static', filename='events_over_time.png') }}"
+          alt="Events Over Time"
+        />
+      </div>
+
+      <div class="graph">
+        <h2>Frequency of HTTP Methods Over Time</h2>
+        <img
+          src="{{ url_for('static', filename='frequency_of_http_methods_over_time.png') }}"
+          alt="Frequency of HTTP Methods Over Time"
+        />
+      </div>
+
+      <div class="graph">
+        <h2>Anomaly Detection (Isolation Forest)</h2>
+        <img
+          src="{{ url_for('static', filename='isolation_forest_anomaly_detection_plot.png') }}"
+          alt="Anomaly Detection (Isolation Forest)"
+        />
+      </div>
+
+      <div class="graph">
+        <h2>
+          Time Series Plot of Request Counts with Moving Average and Anomalies
+          Highlighted
+        </h2>
+        <img
+          src="{{ url_for('static', filename='moving_average_plot.png') }}"
+          alt="Time Series Plot of Request Counts with Moving Average and Anomalies Highlighted"
+        />
+      </div>
+
+      <!-- Local Outlier Factor Model -->
+      <div class="graph">
+        <h2>Anomaly Detection (Local Outlier Factor)</h2>
+        <img
+          src="{{ url_for('static', filename='local_outlier_factor_anomaly_detection_plot.png') }}"
+          alt="Anomaly Detection (Local Outlier Factor)"
+        />
+      </div>
+
+      <!-- One-Class SVM Model -->
+      <div class="graph">
+        <h2>Anomaly Detection (One-Class SVM)</h2>
+        <img
+          src="{{ url_for('static', filename='one_class_svm_anomaly_detection_plot.png') }}"
+          alt="Anomaly Detection (One-Class SVM)"
+        />
+      </div>
+      <div class="graph">
+        <h2>
+          Heatmap of IP Address Request Counts Over Time with Anomalies
+          Highlighted
+        </h2>
+        <img
+          src="{{ url_for('static', filename='heatmap_plot.png') }}"
+          alt="Heatmap of IP Address Request Counts Over Time"
+        />
+      </div>
+
+      <div class="graph">
+        <h2>Summary Plot comparing the accuracy of anomaly detection models</h2>
+        <img
+          src="{{ url_for('static', filename='anomaly_detection_model_comparison.png') }}"
+          alt="Summary Plot comparing the accuracy of anomaly detection models"
+        />
+      </div>
+    </div>
+  </body>
+</html>
